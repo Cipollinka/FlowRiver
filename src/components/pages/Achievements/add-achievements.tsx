@@ -11,7 +11,6 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  SafeAreaView,
   View,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -79,7 +78,7 @@ export const AddAchievements = () => {
       <ImageBackground
         style={styles.imageBg}
         source={require('../../../assets/images/main_bg.png')}>
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleBack} style={styles.back_btn}>
               <Image
@@ -173,7 +172,7 @@ export const AddAchievements = () => {
               Save
             </Text>
           </TouchableOpacity>
-        </SafeAreaView>
+        </View>
       </ImageBackground>
     </View>
   );

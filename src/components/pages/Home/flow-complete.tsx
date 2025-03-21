@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  SafeAreaView,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -30,7 +30,7 @@ export const FlowComplete = ({route}: FlowCompleteProps) => {
       <ImageBackground
         style={styles.imageBg}
         source={require('../../../assets/images/main_bg.png')}>
-        <SafeAreaView style={styles.content}>
+        <View style={styles.content}>
           <View style={styles.mainContent}>
             <View style={styles.confettiContainer}>
               {Array.from({length: 12}).map((_, index) => (
@@ -55,7 +55,7 @@ export const FlowComplete = ({route}: FlowCompleteProps) => {
               <Text style={styles.buttonText}>Back to my flows</Text>
             </TouchableOpacity>
           </View>
-        </SafeAreaView>
+        </View>
       </ImageBackground>
     </View>
   );

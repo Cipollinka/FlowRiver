@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import {
   Image,
-  Linking,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  SafeAreaView
 } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { useUser } from '../../../../user';
@@ -34,10 +32,6 @@ export const Profile = () => {
   // Логування для діагностики
   console.log('🔴 Profile Image:', image, '| Type:', typeof image);
 
-  const openTermsFeed = () => {
-    Linking.openURL('https://www.termsfeed.com/live/6beec54c-e53d-4cf0-a99e-33d3a402d1f1');
-  }
-
   // Функція для вибору нового фото
   const handleImagePick = () => {
     launchImageLibrary({ mediaType: 'photo' }, (response) => {
@@ -55,7 +49,7 @@ export const Profile = () => {
   return (
     <View style={{ height: 480 }}>
       <ScrollView>
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
           {/* Фото профілю */}
           <TouchableOpacity onPress={handleImagePick}>
             <Image
@@ -94,19 +88,19 @@ export const Profile = () => {
           <TouchableOpacity onPress={EditProfile} style={styles.button}>
             <Text style={styles.buttonText}>Edit profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => openTermsFeed()} style={styles.button}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Developer Website</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => openTermsFeed()} style={styles.button}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Privacy Policy</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => openTermsFeed()} style={styles.button}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Terms of Use</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => openTermsFeed()} style={styles.button}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Appeal to developers</Text>
           </TouchableOpacity>
-        </SafeAreaView>
+        </View>
       </ScrollView>
     </View>
   );

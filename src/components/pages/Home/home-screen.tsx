@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, SafeAreaView} from 'react-native';
+import {
+  Image, SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from "react-native";
 import {
   ScreenName,
   useNavigation,
@@ -20,25 +27,25 @@ export const Home = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.recipesContainer}>
-        <ScrollView 
+    <View style={styles.container}>
+      <SafeAreaView style={styles.recipesContainer}>
+        <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.scrollContent}
-        >
+          contentContainerStyle={styles.scrollContent}>
           {!user?.recipes.length ? (
             <View style={styles.emptyState}>
-              <Text style={styles.title}>You haven't created any flows yet</Text>
+              <Text style={styles.title}>
+                You haven't created any flows yet
+              </Text>
             </View>
           ) : (
             user.recipes.map((recipe, index) => (
-              <TouchableOpacity 
-                key={index} 
+              <TouchableOpacity
+                key={index}
                 style={styles.recipeCard}
-                onPress={() => handleFlowPress(recipe)}
-              >
-                <Image 
-                  source={require('../../../assets/images/image_one_flow.png')} 
+                onPress={() => handleFlowPress(recipe)}>
+                <Image
+                  source={require('../../../assets/images/image_one_flow.png')}
                   style={styles.recipeImage}
                 />
                 <View style={styles.recipeInfo}>
@@ -56,15 +63,12 @@ export const Home = () => {
               </TouchableOpacity>
             ))
           )}
-          <TouchableOpacity 
-            onPress={handleAddFlows}
-            style={styles.addButton}
-          >
+          <TouchableOpacity onPress={handleAddFlows} style={styles.addButton}>
             <Image source={require('../../../assets/icons/add_elements.png')} />
           </TouchableOpacity>
         </ScrollView>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 };
 

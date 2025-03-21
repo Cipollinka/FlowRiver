@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
-  SafeAreaView,
 } from 'react-native';
 import {ScreenName, useNavigation} from '../../../../user/lib/hooks/use-navigation.tsx';
 import {Recipe} from '../../../../user/types';
@@ -40,7 +39,7 @@ export const FlowDetails = ({route}: FlowDetailsProps) => {
       <ImageBackground
         style={styles.imageBg}
         source={require('../../../assets/images/main_bg.png')}>
-        <SafeAreaView style={styles.content}>
+        <View style={styles.content}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleBack} style={styles.backBtn}>
               <Image source={require('../../../assets/icons/shevron_back.png')} />
@@ -82,7 +81,7 @@ export const FlowDetails = ({route}: FlowDetailsProps) => {
               </TouchableOpacity>
             </View>
           </ScrollView>
-        </SafeAreaView>
+        </View>
       </ImageBackground>
     </View>
   );

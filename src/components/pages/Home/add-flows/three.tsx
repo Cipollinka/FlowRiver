@@ -5,7 +5,6 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  SafeAreaView, 
   View,
 } from 'react-native';
 
@@ -51,7 +50,7 @@ export const Three = ({
 }: ThreeProps) => {
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Select a flow category</Text>
 
       {categories.map(category => (
@@ -90,7 +89,7 @@ export const Three = ({
         value={lessonCount}
         onChangeText={setLessonCount}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

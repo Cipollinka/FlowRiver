@@ -13,7 +13,7 @@ import art from '../../../assets/data/development.json';
 export const Articles = () => {
   console.log(art);
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <SafeAreaView
         style={{
           width: '100%',
@@ -74,7 +74,7 @@ export const Articles = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </SafeAreaView>
+    </View>
   );
 };
 const styles = StyleSheet.create({

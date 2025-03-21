@@ -14,7 +14,7 @@ export const One = ({
   descriptionValue,
 }: OneProps) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <SafeAreaView style={{gap: 12}}>
         <Text style={styles.title_inputs}>Enter the name of flow</Text>
         <TextInput
@@ -37,7 +37,7 @@ export const One = ({
           value={descriptionValue}
         />
       </SafeAreaView>
-    </SafeAreaView>
+    </View>
   );
 };
 const styles = StyleSheet.create({

@@ -14,7 +14,7 @@ export const Loader = () => {
   const navigation = useNavigation();
 
   setTimeout(() => {
-    navigation.navigate(ScreenName.Main);
+    navigation.navigate(ScreenName.OnBoards);
   }, 2000);
 
   return (

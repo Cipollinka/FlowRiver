@@ -1,12 +1,11 @@
 import {
   Image,
-  ImageBackground,
+  ImageBackground, SafeAreaView,
   StyleSheet,
   Text,
-  SafeAreaView,
   TouchableOpacity,
-  View,
-} from 'react-native';
+  View
+} from "react-native";
 import {useState} from 'react';
 import {One} from './add-flows/one.tsx';
 import {Two} from './add-flows/two.tsx';
@@ -58,14 +57,16 @@ export const AddFlows = () => {
       case 'two':
         return <Two image={imageFlow} setImage={setImageFlow} />;
       case 'three':
-        return <Three 
-          selectedCategory={selectedCategory}
-          lessonDuration={lessonDuration}
-          lessonCount={lessonCount}
-          setSelectedCategory={setSelectedCategory}
-          setLessonDuration={setLessonDuration}
-          setLessonCount={setLessonCount}
-        />;
+        return (
+          <Three
+            selectedCategory={selectedCategory}
+            lessonDuration={lessonDuration}
+            lessonCount={lessonCount}
+            setSelectedCategory={setSelectedCategory}
+            setLessonDuration={setLessonDuration}
+            setLessonCount={setLessonCount}
+          />
+        );
     }
   };
 
@@ -120,7 +121,7 @@ export const AddFlows = () => {
         style={styles.imageBg}
         source={require('../../../assets/images/main_bg.png')}>
         <SafeAreaView style={styles.container}>
-          <View style={styles.header}>
+          <SafeAreaView style={styles.header}>
             <TouchableOpacity onPress={handleBack} style={styles.back_btn}>
               <Image
                 source={require('../../../assets/icons/shevron_back.png')}
@@ -129,7 +130,7 @@ export const AddFlows = () => {
             </TouchableOpacity>
             <Text style={styles.header_title}>Create flow</Text>
             <View style={{width: 55.51}} />
-          </View>
+          </SafeAreaView>
           <View>{renderScreen()}</View>
           <TouchableOpacity
             onPress={handleNext}

@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
   ImageBackground,
-  SafeAreaView,
 } from 'react-native';
 import {ScreenName, useNavigation} from '../../../../user/lib/hooks/use-navigation.tsx';
 import {Recipe} from '../../../../user/types';
@@ -76,7 +75,7 @@ export const FlowTimer = ({route}: FlowTimerProps) => {
       <ImageBackground
         style={styles.imageBg}
         source={require('../../../assets/images/main_bg.png')}>
-        <SafeAreaView style={styles.content}>
+        <View style={styles.content}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleBack} style={styles.backBtn}>
               <Image source={require('../../../assets/icons/shevron_back.png')} />
@@ -113,7 +112,7 @@ export const FlowTimer = ({route}: FlowTimerProps) => {
               )}
             </View>
           </View>
-        </SafeAreaView>
+        </View>
       </ImageBackground>
     </View>
   );

@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View,SafeAreaView} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {
   ScreenName,
   useNavigation,
@@ -15,25 +22,26 @@ export const Achievements = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {!user?.places.length ? (
         <>
-          <Text style={styles.title}>You haven't created any achievements yet</Text>
+          <Text style={styles.title}>
+            You haven't created any achievements yet
+          </Text>
           <TouchableOpacity onPress={handleAddFlows}>
             <Image source={require('../../../assets/icons/add_elements.png')} />
           </TouchableOpacity>
         </>
       ) : (
         <View style={styles.achievementsContainer}>
-          <ScrollView 
+          <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.scrollContent}
-          >
+            contentContainerStyle={styles.scrollContent}>
             {user.places.map((achievement, index) => (
               <TouchableOpacity key={index} style={styles.achievementCard}>
                 {achievement.image && (
-                  <Image 
-                    source={{uri: achievement.image}} 
+                  <Image
+                    source={{uri: achievement.image}}
                     style={styles.achievementImage}
                   />
                 )}
@@ -47,7 +55,9 @@ export const Achievements = () => {
                       {new Date(achievement.date).toLocaleDateString()}
                     </Text>
                     {achievement.tags && (
-                      <Text style={styles.achievementTags}>{achievement.tags}</Text>
+                      <Text style={styles.achievementTags}>
+                        {achievement.tags}
+                      </Text>
                     )}
                   </View>
                 </View>
@@ -56,7 +66,7 @@ export const Achievements = () => {
           </ScrollView>
         </View>
       )}
-    </SafeAreaView>
+    </View>
   );
 };
 

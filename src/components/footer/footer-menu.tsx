@@ -1,4 +1,11 @@
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  Animated,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {useEffect, useRef} from 'react';
 
 interface FooterProps {
   handlePage: (value: ((prevState: string) => string) | string) => void;
@@ -6,12 +13,24 @@ interface FooterProps {
 }
 
 export const Footer = ({handlePage, activePage}: FooterProps) => {
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Початкове значення прозорості
+
+  useEffect(() => {
+    fadeAnim.setValue(0);
+    // Коли активна сторінка змінюється, виконується анімація появи футера
+    Animated.timing(fadeAnim, {
+      toValue: 1, // Робимо футер повністю видимим
+      duration: 500, // Тривалість анімації (300 мс)
+      useNativeDriver: true,
+    }).start();
+  }, [activePage]); // Виконуємо ефект при зміні сторінки
+
   const handleScreen = (page: string) => {
     handlePage(page);
   };
 
   return (
-    <View style={styles.container}>
+    <Animated.View style={[styles.container, {opacity: fadeAnim}]}>
       <TouchableOpacity onPress={() => handleScreen('My flows')}>
         <Image
           source={
@@ -48,7 +67,7 @@ export const Footer = ({handlePage, activePage}: FooterProps) => {
           }
         />
       </TouchableOpacity>
-    </View>
+    </Animated.View>
   );
 };
 const styles = StyleSheet.create({

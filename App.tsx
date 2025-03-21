@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Loader} from './src/components/loader/loader-screen.tsx';
 import {UserProvider} from './user/Provider/UserProvider.tsx';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {Main} from './src/components/main/main-container.tsx';
 import {Home} from './src/components/pages/Home/home-screen.tsx';
 import {AddFlows} from './src/components/pages/Home/add-flows-screen.tsx';
@@ -12,15 +12,23 @@ import {FlowDetails} from './src/components/pages/Home/flow-details.tsx';
 import {FlowTimer} from './src/components/pages/Home/flow-timer.tsx';
 import {FlowComplete} from './src/components/pages/Home/flow-complete';
 import {ScreenName} from './user/lib/hooks/use-navigation';
+import {OnBoards} from './src/components/pages/OnBoards/on-boards-screen.tsx';
+import {Animated} from 'react-native';
+
 const Stack = createStackNavigator();
 
 function App(): React.JSX.Element {
+
   return (
     <UserProvider>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{headerShown: false, animationEnabled: false}}>
+          screenOptions={{
+            headerShown: false,
+            ...TransitionPresets.ModalSlideFromBottomIOS,
+          }}>
           <Stack.Screen name="Loader" component={Loader} />
+          <Stack.Screen name="OnBoards" component={OnBoards} />
           <Stack.Screen name="Main" component={Main} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="AddFlows" component={AddFlows} />

@@ -8,6 +8,7 @@ import {Recipe} from '../../../user/types';
 
 export enum ScreenName {
   Loader = 'Loader',
+  OnBoards = 'OnBoards',
   Main = 'Main',
   Home = 'Home',
   AddFlows = 'AddFlows',
@@ -25,9 +26,9 @@ export type RootStackParamList = {
   AddFlows: undefined;
   AddAchievements: undefined;
   EditProfile: undefined;
-  FlowDetails: { recipe: Recipe };
-  FlowTimer: { recipe: Recipe; currentLesson: number };
-  FlowComplete: { recipe: Recipe };
+  FlowDetails: {recipe: Recipe};
+  FlowTimer: {recipe: Recipe; currentLesson: number};
+  FlowComplete: {recipe: Recipe};
 };
 
 export const useNavigation = () => {

@@ -7,9 +7,8 @@ import {
   TouchableOpacity,
   View,
   ImageBackground,
-  Alert,
-  SafeAreaView,
-} from 'react-native';
+  Alert, SafeAreaView
+} from "react-native";
 import {launchImageLibrary, MediaType} from 'react-native-image-picker';
 import {useUser} from '../../../../user';
 import {
@@ -70,15 +69,15 @@ export const EditProfile = () => {
 
   const handleClearData = () => {
     Alert.alert(
-      'Delete user data',
-      'Are you sure you want to delete all user data? This action cannot be undone.',
+      'Видалити дані користувача',
+      'Ви впевнені, що хочете видалити всі дані користувача? Цю дію неможливо скасувати.',
       [
         {
-          text: 'Cancel',
+          text: 'Скасувати',
           style: 'cancel',
         },
         {
-          text: 'Remove',
+          text: 'Видалити',
           style: 'destructive',
           onPress: () => {
             clearUser();

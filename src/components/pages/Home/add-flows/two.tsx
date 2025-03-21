@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Image, TouchableOpacity, Text, StyleSheet, SafeAreaView} from 'react-native';
+import { View, Image, TouchableOpacity, Text, StyleSheet, SafeAreaView } from "react-native";
 
 // Масив зображень із унікальними ID
 const images = [
@@ -46,9 +46,9 @@ export const Two = ({image, setImage}: TwoProps) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Select image for flow</Text>
-      <View style={styles.imageWrapper}>
+      <SafeAreaView style={styles.imageWrapper}>
         <TouchableOpacity onPress={prevImage} style={styles.arrow}>
           <Text style={styles.arrowText}>{'<'}</Text>
         </TouchableOpacity>
@@ -56,8 +56,8 @@ export const Two = ({image, setImage}: TwoProps) => {
         <TouchableOpacity onPress={nextImage} style={styles.arrow}>
           <Text style={styles.arrowText}>{'>'}</Text>
         </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 };
 
