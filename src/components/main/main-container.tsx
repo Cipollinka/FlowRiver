@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
     height: 88,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(30, 30, 30, 1)',
+    backgroundColor: 'rgba(30, 30, 30, 0.5)',
   },
   header_title: {
     fontWeight: '600',
-    fontSize: 17,
+    fontSize: 25,
     color: 'rgba(255, 255, 255, 1)',
   },
 });

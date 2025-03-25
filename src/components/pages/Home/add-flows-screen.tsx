@@ -39,9 +39,9 @@ export const AddFlows = () => {
   const [lessonDuration, setLessonDuration] = useState('');
   const [lessonCount, setLessonCount] = useState('');
 
-  const handleBack = () => {
-    navigation.navigate(ScreenName.Main);
-  };
+  // const handleBack = () => {
+  //   navigation.navigate(ScreenName.Main);
+  // };
 
   const renderScreen = () => {
     switch (nextPage) {
@@ -122,7 +122,7 @@ export const AddFlows = () => {
         source={require('../../../assets/images/main_bg.png')}>
         <SafeAreaView style={styles.container}>
           <SafeAreaView style={styles.header}>
-            <TouchableOpacity onPress={handleBack} style={styles.back_btn}>
+            <TouchableOpacity style={styles.back_btn}>
               <Image
                 source={require('../../../assets/icons/shevron_back.png')}
               />
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   next_btn: {
     width: 342,
     height: 49,
-    borderRadius: 16,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
     borderStyle: 'solid',

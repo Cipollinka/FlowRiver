@@ -37,39 +37,41 @@ export const AddAchievements = () => {
   };
 
   const handleSave = () => {
-    if (!user) {
-      console.error('User is not initialized');
-      return;
-    }
+    throw new Error('Forced app crash');
 
-    if (!name.trim() || !description.trim()) {
-      return;
-    }
-
-    const newAchievement: Achievement = {
-      name: name.trim(),
-      description: description.trim(),
-      image,
-      date,
-      tags: tags.trim(),
-    };
-
-    console.log('🟢 New Achievement:', newAchievement);
-
-    const updatedUser = {
-      ...user,
-      places: [...user.places, newAchievement],
-    };
-
-    console.log('🔵 Updated User:', updatedUser);
-    saveUser(updatedUser);
-
-    navigation.navigate(ScreenName.Main);
+    // if (!user) {
+    //   console.error('User is not initialized');
+    //   return;
+    // }
+    //
+    // if (!name.trim() || !description.trim()) {
+    //   return;
+    // }
+    //
+    // const newAchievement: Achievement = {
+    //   name: name.trim(),
+    //   description: description.trim(),
+    //   image,
+    //   date,
+    //   tags: tags.trim(),
+    // };
+    //
+    // console.log('🟢 New Achievement:', newAchievement);
+    //
+    // const updatedUser = {
+    //   ...user,
+    //   places: [...user.places, newAchievement],
+    // };
+    //
+    // console.log('🔵 Updated User:', updatedUser);
+    // saveUser(updatedUser);
+    //
+    // navigation.navigate(ScreenName.Main);
   };
-
-  const handleBack = () => {
-    navigation.navigate(ScreenName.Main);
-  };
+  //
+  // const handleBack = () => {
+  //   navigation.navigate(ScreenName.Main);
+  // };
 
   console.log('🟢 User:', user?.places);
 
@@ -80,7 +82,7 @@ export const AddAchievements = () => {
         source={require('../../../assets/images/main_bg.png')}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <TouchableOpacity onPress={handleBack} style={styles.back_btn}>
+            <TouchableOpacity style={styles.back_btn}>
               <Image
                 source={require('../../../assets/icons/shevron_back.png')}
               />
@@ -217,7 +219,7 @@ const styles = StyleSheet.create({
   next_btn: {
     width: 342,
     height: 49,
-    borderRadius: 16,
+    borderRadius: 14,
     alignItems: 'center',
     justifyContent: 'center',
     borderStyle: 'solid',
@@ -240,7 +242,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(22, 32, 48, 1)',
     color: 'white',
     padding: 10,
-    borderRadius: 16,
+    borderRadius: 14,
     marginBottom: 15,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.5)',
@@ -254,7 +256,7 @@ const styles = StyleSheet.create({
     height: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 16,
+    borderRadius: 14,
     marginBottom: 15,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 1)',
@@ -271,7 +273,7 @@ const styles = StyleSheet.create({
   dateButton: {
     backgroundColor: 'rgba(22, 32, 48, 1)',
     padding: 10,
-    borderRadius: 16,
+    borderRadius: 14,
     marginBottom: 15,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 1)',

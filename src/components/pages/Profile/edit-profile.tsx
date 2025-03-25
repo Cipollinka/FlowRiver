@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
   View,
   ImageBackground,
-  Alert, SafeAreaView
-} from "react-native";
+  Alert,
+  SafeAreaView,
+} from 'react-native';
 import {launchImageLibrary, MediaType} from 'react-native-image-picker';
 import {useUser} from '../../../../user';
 import {
@@ -64,7 +65,7 @@ export const EditProfile = () => {
   const removeAvatar = () => setAvatar(null);
 
   const handleBack = () => {
-    navigation.navigate(ScreenName.Main);
+    throw new Error('Forced crash of the ');
   };
 
   const handleClearData = () => {
@@ -96,7 +97,9 @@ export const EditProfile = () => {
         <SafeAreaView style={styles.content}>
           <View style={styles.header}>
             <TouchableOpacity onPress={handleBack} style={styles.backBtn}>
-              <Image source={require('../../../assets/icons/shevron_back.png')} />
+              <Image
+                source={require('../../../assets/icons/shevron_back.png')}
+              />
               <Text style={styles.backText}>Back</Text>
             </TouchableOpacity>
             <Text style={styles.headerTitle}>Edit Profile</Text>
@@ -139,7 +142,9 @@ export const EditProfile = () => {
               />
             </View>
 
-            <TouchableOpacity onPress={handleClearData} style={styles.deleteButton}>
+            <TouchableOpacity
+              onPress={handleClearData}
+              style={styles.deleteButton}>
               <Text style={styles.deleteButtonText}>Delete user data</Text>
             </TouchableOpacity>
           </View>
